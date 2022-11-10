@@ -1,23 +1,28 @@
 import pickle
 
+from pandas import DataFrame
 from flask import Flask, request, jsonify
+from train_helpers import CATEGORICAL, INT64,FEATURES, prep_df
 
 model_file = 'model_midterm.bin'
 
 with open(model_file, 'rb') as f_in:
-    final_model, transform_training, DMatrix = pickle.load(f_in)
+    model, DMatrix = pickle.load(f_in)
 
 app = Flask('readmission')
 
 def get_prediction_dict(patient_json):
-    X = transform_training(patient_json)
-    y_pred = model.predict(X)
+    print(patient_json)
+    df = DataFrame.from_records([patient_json])
+    df, _ = prep_df(df)
+    ddf = DMatrix(df, feature_names=FEATURES, enable_categorical=True)
+    y_pred = model.predict(ddf)
     # could more precisely select threshold, will use 0.5 for now
     readmission = y_pred >= 0.5
 
     result = {
        'readmission_probability': float(y_pred),
-       'readmission' = bool(readmission)
+       'readmission': bool(readmission)
     }
 
     return result

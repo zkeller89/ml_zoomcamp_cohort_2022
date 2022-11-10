@@ -17,6 +17,7 @@ bentoml = "*"
 pydantic = "*"
 locust = "*"
 pandas-profiling = "*"
+gunicorn = "*"
 
 [dev-packages]
 
