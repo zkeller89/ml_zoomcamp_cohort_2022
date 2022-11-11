@@ -9,7 +9,7 @@
 ## How to run the project
 1. Ensure docker is installed
 2. In this directory, build the image: `docker build -t midterm:latest .`
-3. Run a container based on this image: `docker run -it --rm -p 96:96 midterm`
+3. Run a container based on this image: `docker run -it --rm -p 9696:9696 midterm`
     * This will create a small flask webapp which will return a prediction based on a paitent's info.
 4. You can test it yourself, or open up `test_predict.ipynb` in order to test varioius patients from the test training set (not used in the modeling).
 
