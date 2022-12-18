@@ -10,6 +10,8 @@ from tensorflow.keras import layers
 from tensorflow.keras.layers import CenterCrop
 from tensorflow.keras.layers import Rescaling
 
+MODEL_NAME = 'xception_model_v1'
+
 img_size = (256, 256)
 batch_size = 32
 
@@ -63,4 +65,12 @@ history = model.fit(
     epochs=epochs
 )
 
-model.save_weights('model_v1.h5', save_format='h5')
+model.save(MODEL_NAME)
+
+# Convert the model
+converter = tf.lite.TFLiteConverter.from_saved_model(MODEL_NAME) # path to the SavedModel directory
+tflite_model = converter.convert()
+
+# Save the model.
+with open(f'{MODEL_NAME}.tflite', 'wb') as f:
+  f.write(tflite_model)
