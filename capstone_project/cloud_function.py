@@ -10,12 +10,12 @@ interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-classes = ['cup', 'fork', 'glass', 'knife', 'plate', 'spoon']-
+classes = ['cup', 'fork', 'glass', 'knife', 'plate', 'spoon']
 
 def predict(url):
     img = Image.open(requests.get(url, stream=True).raw)
     img = img.resize((256, 256), Image.NEAREST)
-    
+
     X = np.array(img, dtype=np.float32)
 
     interpreter.set_tensor(input_details[0]['index'], [X])
