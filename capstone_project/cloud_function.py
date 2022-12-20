@@ -21,8 +21,9 @@ def predict(url):
     interpreter.set_tensor(input_details[0]['index'], [X])
     interpreter.invoke()
     preds = interpreter.get_tensor(output_details[0]['index'])
+    float_preds = preds[0].tolist()
 
-    return dict(zip(classes, preds[0]))
+    return dict(zip(classes, float_preds))
 
 
 def lambda_handler(event, context):
