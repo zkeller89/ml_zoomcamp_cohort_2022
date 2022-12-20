@@ -1,10 +1,10 @@
 import numpy as np
 import requests
 
-from tensorflow import lite
+import tflite_runtime.interpreter as tflite
 from PIL import Image
 
-interpreter = lite.Interpreter('xception_model_v1.tflite')
+interpreter = tflite.Interpreter('xception_model_v1.tflite')
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
