@@ -74,7 +74,7 @@ pipenv install -r requirements.txt
     1. Navigate to this directory
     2. Run
     ```
-    docker build -t capstone_model .
+    > docker build -t capstone_model .
     ```
 
     * You can replace `capstone_model` with whatever you want to name the image
@@ -89,7 +89,7 @@ pipenv install -r requirements.txt
     ```
     import requests
 
-    # url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
+    url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
     data = {'url': 'https://github.com/zkeller89/ml_zoomcamp_cohort_2022/blob/main/capstone_project/images/0015.jpg?raw=true'}
 
     result = requests.post(url, json=data).json()
