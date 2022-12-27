@@ -46,7 +46,7 @@ We attempted to train two models:
 ## Exporting notebook to script
 Relevant file: `train.py`
 
-The file `train.py` conatins all info needed to train the model and save the result to a `tflite` file. To do so, install the needed depdencies and run `pythin train.py`
+The file `train.py` conatins all info needed to train the model and save the result to a `tflite` file. To do so, install the needed depdencies and run `python train.py`
 
 ## Reproducibility
 
