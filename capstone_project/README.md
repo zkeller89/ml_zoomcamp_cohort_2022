@@ -38,10 +38,10 @@ Relevant file: `train.ipynb`:
 
 We attempted to train two models:
 * The first attempt used a very basic model which generally followed the Keras introduction instructions. It involved a few convolutional layers and a dense layer.
-* It was clear that model would no perform well, so we then moved on to train another model using transfer learning model (with an Xception base).
+* It was clear that model would not perform well, so we then moved on to train another model using transfer learning model (with an Xception base).
     * We also added an addditional dense layer on top of the base.
     * The Xception base was frozen
-    * After it was clear this model was more performance, the learning rate was then chosen based on validation set accuracy.
+    * After it was clear this model was more performant, the learning rate was then chosen based on validation set accuracy.
 
 ## Exporting notebook to script
 Relevant file: `train.py`
